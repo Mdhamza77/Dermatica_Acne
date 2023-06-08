@@ -17,7 +17,15 @@ const Appointment = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const results = await consult;
+            const results = await consult; 
+            setConsult({
+                patientName : "" ,
+                age : "" ,
+                disease : "" ,
+                reason : "" ,
+                appointmentDate : "" ,
+                appointmentTime : "" 
+            })
             console.log(results)
         } catch (error) {
             console.log(error)
@@ -25,34 +33,56 @@ const Appointment = () => {
 
     }
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='form-f1'>
+            <form onSubmit={handleSubmit} className='appoint-form'>
                 <div>
-                    <label htmlFor=''>Patient-Name</label>
-                    <input type='text' id='' name='patientName' value={consult.patientName} onChange={handleChange} />
+                    <div className='col25'>
+                        <label htmlFor=''>Patient-Name</label>
+                    </div>
+                    <div className='col75'>
+                        <input type='text' id='' name='patientName' value={consult.patientName} onChange={handleChange} />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor=''>Age</label>
-                    <input type='number' id='' name='age' value={consult.age} onChange={handleChange} />
+                    <div className='col25'>
+                        <label htmlFor=''>Age</label>
+                        <div className='col75'>
+                            <input type='number' id='' name='age' value={consult.age} onChange={handleChange} />
+                        </div>
+                    </div>
+                    <div className='col25'>
+                        <label htmlFor=''>Disease</label>
+                    </div>
+                    <div className='col75'>
+                        <input type='text' id='' name='disease' value={consult.disease} onChange={handleChange} />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor=''>Disease</label>
-                    <input type='text' id='' name='disease' value={consult.disease} onChange={handleChange} />
+                    <div className='col25'>
+
+                        <label htmlFor=''>Reason</label>
+                    </div>
+                    <div className='col75'>
+                        <textarea id='' name='reason' value={consult.reason} onChange={handleChange} />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor=''>Reason</label>
-                    <textarea id='' name='reason' value={consult.reason} onChange={handleChange} />
+                    <div className='col25'>
+                        <label htmlFor=''>Appointment-Date</label>
+                    </div>
+                    <div className='col75'>
+                        <input type='date' id='' name='appointmentDate' value={consult.appointmentDate} onChange={handleChange} />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor=''>Appointment-Date</label>
-                    <input type='date' id='' name='appointmentDate' value={consult.appointmentDate} onChange={handleChange} />
+                    <div className='col25'>
+                        <label htmlFor=''>Appointment-Time</label> </div>
+                    <div className='col75'>
+                        <input type='time' id='' name='appointmentTime' value={consult.appointmentTime} onChange={handleChange} />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor=''>Appointment-Time</label>
-                    <input type='time' id='' name='appointmentTime' value={consult.appointmentTime} onChange={handleChange} />
-                </div>
-                <div>
-                    <button type='submit' >Save</button>
+                    <button className='buttons' type='submit' >Save</button>
                 </div>
             </form>
         </div>

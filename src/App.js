@@ -1,17 +1,16 @@
 import NavBar from './components/layouts/header/NavBar';
-import Footer from './components/layouts/footer/Footer';
-import Cards from './components/home_Page/cards/Cards';
 import { Routes, Route } from 'react-router-dom';
 import Appointment from './components/form_page/Appointment';
+import HomePage from './components/home_Page/Home_Page';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Cards />
-      <Footer />
+      <NavBar/>
       <div className='router'>
         <Routes>
            <Route path='/appointment' element={<Appointment />} />
+           <Route path='' element={<HomePage/>} />
+
         </Routes>
       </div>
     </div>

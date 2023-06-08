@@ -1,0 +1,27 @@
+*{
+    font-family :'Courier New', Courier, monospace;
+    font-size: medium;
+    color: black;
+    text-decoration: none;
+    background-color: #f2eee9;
+    
+}
+
+.btn-btn1{
+    color: black; 
+    font-weight: bold; 
+    background-color: #6cddc7;
+    border: 1em solid #6cddc7;
+    cursor: pointer;
+}
+
+.nav-bar{
+    border : 2px solid  #d6d2cd;
+    padding: 11px 20px;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+
+}

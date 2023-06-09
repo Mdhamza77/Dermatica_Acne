@@ -24,6 +24,16 @@ const Appointment = () => {
         emailjs.sendForm('service_bzo552l', 'template_5vavcj7', form.current, 'Sn1qIin4_PHwVP_5o')
             .then((result) => {
                 console.log(result.text);
+                setConsult({
+                    patientName: "",
+                    age: "",
+                    disease: "",
+                    reason: "",
+                    appointmentDate: "",
+                    appointmentTime: "",
+                    email: ""
+            
+                })
             }, (error) => {
                 console.log(error.text);
             });

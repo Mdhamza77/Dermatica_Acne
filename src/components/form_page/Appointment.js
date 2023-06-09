@@ -9,8 +9,8 @@ const Appointment = () => {
         disease: "",
         reason: "",
         appointmentDate: "",
-        appointmentTime: "" ,
-        email : ""
+        appointmentTime: "",
+        email: ""
 
     })
     const handleChange = (e) => {
@@ -18,34 +18,16 @@ const Appointment = () => {
         setConsult({ ...consult, [name]: value })
     }
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm('service_bzo552l', 'template_5vavcj7', form.current, 'Sn1qIin4_PHwVP_5o')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-  };
-    const handleSubmit = async (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
-        try {
-            const results = await consult; 
-            setConsult({
-                patientName : "" ,
-                age : "" ,
-                disease : "" ,
-                reason : "" ,
-                appointmentDate : "" ,
-                appointmentTime : "" 
-            })
-            console.log(results)
-        } catch (error) {
-            console.log(error)
-        }
 
-    }
+        emailjs.sendForm('service_bzo552l', 'template_5vavcj7', form.current, 'Sn1qIin4_PHwVP_5o')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
     return (
         <div className='form-f1'>
             <form ref={form} onSubmit={sendEmail} className='appoint-form'>
@@ -64,7 +46,7 @@ const Appointment = () => {
                             <input type='number' id='' name='age' value={consult.age} onChange={handleChange} />
                         </div>
                     </div>
-                    
+
                     <div className='col25'>
                         <label htmlFor=''>Disease</label>
                     </div>
@@ -79,7 +61,7 @@ const Appointment = () => {
                             <input type='email' id='' name='email' value={consult.email} onChange={handleChange} />
                         </div>
                     </div>
-                </div>    
+                </div>
                 <div>
                     <div className='col25'>
 

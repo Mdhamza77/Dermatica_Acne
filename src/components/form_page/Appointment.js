@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from 'emailjs-com'
 import './style.css'
 const Appointment = () => {
+    const form = useRef()
     const [consult, setConsult] = useState({
         patientName: "",
         age: "",
         disease: "",
         reason: "",
         appointmentDate: "",
-        appointmentTime: ""
+        appointmentTime: "" ,
+        email : ""
 
     })
     const handleChange = (e) => {
         let { name, value } = e.target;
         setConsult({ ...consult, [name]: value })
     }
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_bzo552l', 'template_5vavcj7', form.current, 'Sn1qIin4_PHwVP_5o')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -34,7 +48,7 @@ const Appointment = () => {
     }
     return (
         <div className='form-f1'>
-            <form onSubmit={handleSubmit} className='appoint-form'>
+            <form ref={form} onSubmit={sendEmail} className='appoint-form'>
                 <div>
                     <div className='col25'>
                         <label htmlFor=''>Patient-Name</label>
@@ -50,6 +64,7 @@ const Appointment = () => {
                             <input type='number' id='' name='age' value={consult.age} onChange={handleChange} />
                         </div>
                     </div>
+                    
                     <div className='col25'>
                         <label htmlFor=''>Disease</label>
                     </div>
@@ -57,6 +72,14 @@ const Appointment = () => {
                         <input type='text' id='' name='disease' value={consult.disease} onChange={handleChange} />
                     </div>
                 </div>
+                <div>
+                    <div className='col25'>
+                        <label htmlFor=''>Email</label>
+                        <div className='col75'>
+                            <input type='email' id='' name='email' value={consult.email} onChange={handleChange} />
+                        </div>
+                    </div>
+                </div>    
                 <div>
                     <div className='col25'>
 

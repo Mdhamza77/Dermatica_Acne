@@ -23,7 +23,8 @@ const Appointment = () => {
 
         emailjs.sendForm('service_bzo552l', 'template_5vavcj7', form.current, 'Sn1qIin4_PHwVP_5o')
             .then((result) => {
-                console.log(result.text);
+                console.log(result);
+                console.log(result.status)
                 setConsult({
                     patientName: "",
                     age: "",
@@ -32,7 +33,7 @@ const Appointment = () => {
                     appointmentDate: "",
                     appointmentTime: "",
                     email: ""
-            
+
                 })
             }, (error) => {
                 console.log(error.text);
@@ -56,12 +57,22 @@ const Appointment = () => {
                             <input type='number' id='' name='age' value={consult.age} onChange={handleChange} />
                         </div>
                     </div>
-
+                    <div>
                     <div className='col25'>
                         <label htmlFor=''>Disease</label>
                     </div>
-                    <div className='col75'>
-                        <input type='text' id='' name='disease' value={consult.disease} onChange={handleChange} />
+                        <select onChange={handleChange} name='disease'>
+
+                            <optgroup >
+                                <option defaultValue=''>select From</option>
+                                <option>Acne</option>
+                                <option>PSoriasis</option>
+                                <option>Pemphigus</option>
+                                <option>Alopecia Areata</option>
+                                <option>Atopic Dermatitis</option>
+                                <option>Raynaud’s Phenomenon</option>
+                            </optgroup>
+                        </select>
                     </div>
                 </div>
                 <div>

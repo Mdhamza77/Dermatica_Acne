@@ -25,6 +25,7 @@
     border-radius: 4px;
     cursor: pointer;
     margin-top: 0.5em;
+    margin-bottom: 1.5em;
     float: center;
   }
   
@@ -61,4 +62,10 @@
       width: 100%;
       margin-top: 0;
     }
+  }
+
+  .form-f1{
+    padding: 0em;
+    border:0.5em solid  #60b8a5;
+    box-shadow: none;
   }
